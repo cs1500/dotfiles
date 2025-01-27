@@ -9,6 +9,10 @@ vim.o.expandtab = true
 -- vim settings and keybinds in .vim
 vim.cmd('source ~/.config/nvim/settings.vim')
 
+vim.opt.clipboard = "unnamedplus"
+-- sudo apt install xclip
+-- for x11 systems
+
 -- telescope settings
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
