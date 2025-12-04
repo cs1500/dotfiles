@@ -1,0 +1,2 @@
+audio-display=no  # Disable video output for audio-only playback
+geometry=16%

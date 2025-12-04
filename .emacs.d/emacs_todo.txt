@@ -1,0 +1,24 @@
+To do for emacs:
+	- auctex customisation
+    	- smooth scrolling is kind of bad rn
+        - remove auctex and force 4 spaces for indentation
+	- viper customisation (top priority)
+    	- "u" should be able to undo more than once!
+    	- caw keystroke implementation
+    	y- visual mode cannot exit with v
+        	y- mass indentation support
+            y- mass yank, delete, and paste
+        y- keystroke >> currently does not do 4 spaces as tab...
+        - dir + viper: always stay on the file-to-open
+    - editor
+    	- latex thing, no auto indent to two when in environments, or autoindent
+        always to 4 spaces
+    	- terminal integration
+        - split buffer behavior, opening stuff on left buffer should
+          remain on that buffer...
+    	- (very long) startup page with recent directories
+        - closing a buffer should go back to the homepage always,
+          or perhaps the current project!!
+    	- backspace on tabbed should still just delete the entire tab
+        - nicer ruler @ 80 characters per line
+	- firejail emacs by default
