@@ -1,16 +1,27 @@
 ### Some notes on linux
 
-- For Debian systems, often need to run: `apt install firmware-linux
-firmware-misc-nonfree` after fresh install. Right now not good experience
-for Nvidia hybrid systems, Debian 12 works, but for me it's packages are
-too out of date.
+- **Debian**: For Nvidia hybrid systems, Debian 12 works. After fresh install
+run:
+```
+sudo apt install firmware-linux firmware-misc-nonfree
+```
 
-- Dark bar for emacs (specifically `emacs-pgtk`, pure wayland build) needs
-the following hacky desktop entry in
+- **Fedora**: Great experience on Fedora 43. Apps I use include:
+```
+sudo dnf install \
+    mpv vlc \
+    syncthing stow \
+    kitty neovim emacs R \
+    texlive-scheme-full \
+    fira-code-fonts
+```
+
+- **Emacs**: Dark bar for emacs (specifically `emacs-pgtk`, pure wayland build,
+on Fedora) needs the following hacky desktop entry in
 `~/.local/share/applications/emacs.desktop`, namely that the exec line needs
 to be replaced with: `Exec=env GTK_THEME=Adwaita:dark emacs-pgtk %F`.
 
-- Now I use stow to symlink my maintained dotfiles.
+- **Stow**: Now I use stow to sync my dotfiles, via the following command:
 ```
-stow emacs kitty mpv nvim
+stow VSCodium emacs kitty mpv nvim
 ```
