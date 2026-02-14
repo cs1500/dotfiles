@@ -12,6 +12,5 @@ to be replaced with: `Exec=env GTK_THEME=Adwaita:dark emacs-pgtk %F`.
 
 - Now I use stow to symlink my maintained dotfiles.
 ```
-stow *
 stow emacs
 ```
