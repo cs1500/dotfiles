@@ -1,0 +1,122 @@
+;;==============================================================================
+;; general editor settings
+;;==============================================================================
+;; ibm fonts
+(add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
+
+;; tab settings
+(setq-default 
+    ;; spaces instead of tabs
+    indent-tabs-mode nil
+
+    tab-width 4
+    fill-column 80
+)
+(setq tab-always-indent t)
+;; Use spaces instead of tabs everywhere
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default evil-shift-width 4)  ;; if you use evil/vim mode
+
+;; Make TAB key always indent correctly, never insert a tab character
+(setq tab-always-indent t)
+
+;; Optional: make tab stop every 4 columns (affects M-i, etc.)
+(setq tab-stop-list (number-sequence 4 120 4))
+
+;; For specific modes that are stubborn (rare in 2025, but just in case)
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil
+                  tab-width 4)))
+
+;; cursor settings
+(set-cursor-color "red")
+(blink-cursor-mode 0)
+
+;; always show absolute line numbers
+;(global-display-line-numbers-mode t)
+;(setq display-line-numbers-type 'absolute)
+;; Disable line numbers in DocView (and other non-text modes)
+(dolist (mode '(doc-view-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                eshell-mode-hook
+                vterm-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+;; enable clipboard integration
+(setq
+    select-enable-clipboard t
+    select-enable-primary t
+    save-interprogram-paste-before-kill t
+)
+
+;; Make Backspace smart: join lines at BOL, hungry delete in indentation.
+(defun my/backspace-smart ()
+  (interactive)
+  (cond
+   ;; if a region is active, delete it
+   ((use-region-p)
+    (delete-region (region-beginning) (region-end)))
+   ;; at beginning of line (but not beginning of buffer): delete the newline
+   ((and (bolp) (not (bobp)))
+    (delete-char -1))  ;; removes the newline before point (joins lines)
+   ;; otherwise: hungry untabify/backspace (delete whole indent step)
+   (t
+    (let ((backward-delete-char-untabify-method 'hungry))
+      (call-interactively #'backward-delete-char-untabify)))))
+
+;; Bind both GUI <backspace> and terminal DEL to the smart handler
+(global-set-key (kbd "<backspace>") #'my/backspace-smart)
+(global-set-key (kbd "DEL")         #'my/backspace-smart)
+
+;; Helpful if you use terminals: make Backspace behave sanely there
+(normal-erase-is-backspace-mode 1)
+
+;; If you use Viper, ensure insert-state also uses the smart backspace
+(with-eval-after-load 'viper
+  (dolist (map '(viper-insert-global-user-map viper-insert-local-user-map))
+    (when (boundp map)
+      (define-key (symbol-value map) (kbd "<backspace>") #'my/backspace-smart)
+      (define-key (symbol-value map) (kbd "DEL")         #'my/backspace-smart))))
+
+;;==============================================================================
+;; LaTeX editing settings
+;;==============================================================================
+;; --- LaTeX: force 4-space indentation (envs + items) ---
+(defun my/latex-newline-same-indent ()
+  "Insert a newline and keep the same indentation as the current line."
+  (interactive)
+  (let ((col (current-indentation)))
+    (newline)
+    (indent-to col)))
+
+(defun my/latex-indent-4 ()
+  "Use 4-space indentation for LaTeX and keep sane newlines."
+  (setq-local indent-tabs-mode nil)      ;; spaces, not tabs
+
+  ;; Base indentation width
+  (when (boundp 'LaTeX-indent-level)
+    (setq-local LaTeX-indent-level 4)
+    (setq-local TeX-brace-indent-level 4)
+    (setq-local LaTeX-item-indent 0))   ;; \item at env indent
+
+  (when (boundp 'tex-indent-basic)
+    (setq-local tex-indent-basic 4)
+    (when (boundp 'tex-item-indent)
+      (setq-local tex-item-indent 0)))
+
+  ;; Don't let electric-indent second-guess us
+  (when (fboundp 'electric-indent-local-mode)
+    (electric-indent-local-mode -1))
+
+  ;; RET = newline with the *same* indent as current line
+  (local-set-key (kbd "RET") #'my/latex-newline-same-indent))
+
+(add-hook 'LaTeX-mode-hook #'my/latex-indent-4)
+(add-hook 'latex-mode-hook  #'my/latex-indent-4)
+
+(add-hook 'latex-mode-hook #'my/latex-indent-4)
+;; (add-hook 'LaTeX-mode-hook #'my/latex-indent-4)  ;; only if you ever use AUCTeX
+
