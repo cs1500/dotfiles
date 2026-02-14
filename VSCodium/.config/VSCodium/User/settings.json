@@ -1,0 +1,24 @@
+{
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Tokyo Night Storm",
+    "editor.rulers": [80],
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#ff0000"
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.smoothScrolling": true,
+    "workbench.tree.indent": 16,
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "latex-workshop.latex.outDir": "%DIR%/build",
+
+    "python.analysis.gotoDefinition": "true",
+    "python.analysis.gotoDefinitionFallback": true,
+    "python.languageServer": "Jedi"
+}
