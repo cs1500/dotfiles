@@ -1,7 +1,15 @@
 {
+    // ===================== 
+    // Font settings
+    // ===================== 
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": false,
     "editor.fontSize": 14,
+    "notebook.output.fontFamily": "Fira Code, monospace",
+
+    // ===================== 
+    // Editor settings
+    // ===================== 
     "editor.minimap.enabled": false,
     "workbench.colorTheme": "Tokyo Night Storm",
     "editor.rulers": [80],
@@ -11,14 +19,33 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
+ 
+    // ===================== 
+    // Performance settings
+    // ===================== 
+        // Quirk of nvidia hybrid on gnome 49.4 wayland:
+        // VSCodium windows perform well only in the workspace
+        // that it was created in!
     "editor.smoothScrolling": true,
+    // "editor.smoothScrolling": false, // fallback for nvidia hybrid...
+    // "disable-hardware-acceleration": true,
+
+    // ===================== 
+    // Latex settings
+    // ===================== 
     "workbench.tree.indent": 16,
     "workbench.editorAssociations": {
         "*.pdf": "latex-workshop-pdf-hook"
     },
     "latex-workshop.latex.outDir": "%DIR%/build",
-
-    "python.analysis.gotoDefinition": "true",
+ 
+    // ===================== 
+    // Python settings
+    // ===================== 
+    "python.analysis.gotoDefinition": true,
     "python.analysis.gotoDefinitionFallback": true,
-    "python.languageServer": "Jedi"
+    // codium says cannot resolve path, but actually works??
+    "python.defaultInterpreterPath": "/home/cs/anaconda3/bin/python",
+    "python.analysis.typeCheckingMode": "basic",
+    // "python.languageServer": "Pylance"
 }
