@@ -11,7 +11,6 @@
     // Editor settings
     // ===================== 
     "editor.minimap.enabled": false,
-    "workbench.colorTheme": "Tokyo Night Storm",
     "editor.rulers": [80],
     "workbench.colorCustomizations": {
         "editorCursor.foreground": "#ff0000"
@@ -47,5 +46,6 @@
     // codium says cannot resolve path, but actually works??
     "python.defaultInterpreterPath": "/home/cs/anaconda3/bin/python",
     "python.analysis.typeCheckingMode": "basic",
+    "workbench.colorTheme": "Tokyo Night Storm",
     // "python.languageServer": "Pylance"
 }
