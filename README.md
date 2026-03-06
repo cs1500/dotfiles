@@ -6,7 +6,7 @@ to be replaced with: `Exec=env GTK_THEME=Adwaita:dark emacs-pgtk %F`.
 
 - **Stow**: Now I use stow to sync my dotfiles, via the following command:
 ```
-stow VSCodium emacs kitty mpv nvim
+stow -t ~ VSCodium emacs kitty mpv nvim
 ```
 
 - **Blocklist**: Add the following lines to the file `/etc/hosts`:
@@ -33,6 +33,10 @@ stow VSCodium emacs kitty mpv nvim
 0.0.0.0 www.animekai.to
 0.0.0.0 store.steampowered.com
 0.0.0.0 www.store.steampowered.com
+0.0.0.0 phoronix.com
+0.0.0.0 www.phoronix.com
+0.0.0.0 notebookcheck.net
+0.0.0.0 www.notebookcheck.net
 ```
 
 ## Debian
