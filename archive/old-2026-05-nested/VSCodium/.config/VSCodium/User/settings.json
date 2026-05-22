@@ -1,0 +1,52 @@
+{
+    // ===================== 
+    // Font settings
+    // ===================== 
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 14,
+    "notebook.output.fontFamily": "Fira Code, monospace",
+
+    // ===================== 
+    // Editor settings
+    // ===================== 
+    "editor.minimap.enabled": false,
+    "editor.rulers": [80],
+    "workbench.colorCustomizations": {
+        // "editorCursor.foreground": "#ff0000",
+        // "terminal.selectionBackground": "#5a5f73",
+        // "terminal.selectionBackground": "#cc0000",
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+ 
+    // ===================== 
+    // Performance settings
+    // ===================== 
+        // Quirk of nvidia hybrid on gnome 49.4 wayland:
+        // VSCodium windows perform well only in the workspace
+        // that it was created in!
+    "editor.smoothScrolling": false,
+    // "disable-hardware-acceleration": true,
+
+    // ===================== 
+    // Latex settings
+    // ===================== 
+    "workbench.tree.indent": 16,
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "latex-workshop.latex.outDir": "%DIR%/build",
+ 
+    // ===================== 
+    // Python settings
+    // ===================== 
+    "python.analysis.gotoDefinition": true,
+    "python.analysis.gotoDefinitionFallback": true,
+    // codium says cannot resolve path, but actually works??
+    "python.defaultInterpreterPath": "/home/cs/anaconda3/bin/python",
+    "python.analysis.typeCheckingMode": "basic",
+    "workbench.colorTheme": "Monokai",
+    // "python.languageServer": "Pylance"
+}

@@ -1,13 +1,14 @@
 # Setup instructions
-- **Stow**:
-Run the following to symlink:
+- **Emacs**: Dark bar for emacs (specifically `emacs-pgtk`, pure wayland build,
+on Fedora) needs the following hacky desktop entry in
+`~/.local/share/applications/emacs.desktop`, namely that the exec line needs
+to be replaced with: `Exec=env GTK_THEME=Adwaita:dark emacs-pgtk %F`.
+
+- **Stow**: Symlink configs with the following:
 ```
-bash ./install.sh
+stow --no-folding -t ~ VSCodium emacs kitty mpv nvim
 ```
-and the following to unsymlink:
-```
-bash ./uninstall.sh
-```
+To undo symlinks, do `stow -D -t ~ VSCodium emacs kitty mpv nvim`.
 
 ## Ubuntu
 Install applications with:
@@ -60,11 +61,6 @@ sudo dnf install \
     kitty neovim emacs R fira-code-fonts \
     texlive-scheme-full gnome-extensions-app
 ```
-- **Emacs**: Dark bar for emacs (specifically `emacs-pgtk`, pure wayland build,
-on Fedora) needs the following hacky desktop entry in
-`~/.local/share/applications/emacs.desktop`, namely that the exec line needs
-to be replaced with: `Exec=env GTK_THEME=Adwaita:dark emacs-pgtk %F`.
-
 To always show GRUB on boot, run:
 ```
 sudo grub2-editenv - unset menu_auto_hide

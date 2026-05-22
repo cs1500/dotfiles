@@ -1,0 +1,27 @@
+;; ────────────────────────────────────────────────
+;; Start Emacs fullscreen, but keep window decorations (so GNOME top bar visible)
+;; ────────────────────────────────────────────────
+(add-to-list 'default-frame-alist '(fullscreen . maximized))  ;; not fullboth!
+;; "maximized" fills screen but *respects* the GNOME shell/topbar.
+;; "fullboth" covers it completely.
+(when (and (fboundp 'frame-dark-mode)   ;; available on Emacs 29+ with PGTK
+           (display-graphic-p))
+  (add-hook 'frame-dark-mode-hook
+            (lambda ()
+              (if frame-dark-mode
+                  (progn
+                    (disable-theme 'leuven)    ;; replace with any light theme you use
+                    (load-theme 'wombat t))    ;; dark theme
+                (progn
+                  (disable-theme 'wombat)
+                  (load-theme 'leuven t))))))  ;; light theme
+
+(put 'dired-find-alternate-file 'disabled nil)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map [mouse-1] #'dired-find-alternate-file))
+
+; vertical ruler at 80 characters
+(add-hook 'LaTeX-mode-hook 'display-fill-column-indicator-mode)
+(add-hook 'python-mode-hook 'display-fill-column-indicator-mode)
+(setopt display-fill-column-indicator-column 80)
+;;(setq-default display-fill-column-indicator t)
