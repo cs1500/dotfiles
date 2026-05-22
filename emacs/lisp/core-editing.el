@@ -2,6 +2,8 @@
 ;; controls how emacs behaves
 
 ;; --- general editor settings ---
+(electric-pair-mode 1) ;; autocomplete stuff like `(` with `)`
+
 ;; tab settings
 (setq-default
     indent-tabs-mode nil ;; spaces instead of tabs

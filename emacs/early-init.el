@@ -6,8 +6,7 @@
     gc-cons-threshold (* 64 1024 1024)
 
     ;; increases maximum per chunk read size to 4mb (from 4kb)
-    read-process-output-max (* 4 1024 1024)
-)
+    read-process-output-max (* 4 1024 1024))
 
 ;; disable gui elements
 (menu-bar-mode -1)
@@ -17,3 +16,6 @@
 
 ;; launch maximised, windowed fullscreen, placed here for speed
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(setq package-enable-at-startup nil) ;; do not connect to packages
+(setq package-archives nil)
