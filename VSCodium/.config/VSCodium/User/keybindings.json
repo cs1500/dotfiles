@@ -1,0 +1,23 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "alt+h",
+        "command": "-workbench.action.showCommands"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.focusBelowGroup"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.focusAboveGroup"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusRightGroup"
+    }
+]
