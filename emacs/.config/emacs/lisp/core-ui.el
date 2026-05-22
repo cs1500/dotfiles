@@ -32,10 +32,18 @@
       evil-insert-state-cursor '(bar "red")
       evil-visual-state-cursor '(hollow "red"))
 
-;; 80-column block ruler, no line glyph inside
+;; 80 column block ruler, no line glyph inside
 (setq-default fill-column 80)
 (setq-default display-fill-column-indicator-column 80)
 (setq-default display-fill-column-indicator-character ?\s)
 (global-display-fill-column-indicator-mode 1)
 (set-face-background 'fill-column-indicator "gray25")
 (set-face-foreground 'fill-column-indicator "gray25")
+
+;; line scrolling
+(setq scroll-step 1) ;; scroll one line at a time
+(setq scroll-conservatively 10000) ;; do not recenter window
+(setq scroll-margin 3) ;; keep three lines above/below cursor aways
+(setq auto-window-vscroll nil) ;; reduces jumps when scrolling
+(pixel-scroll-precision-mode 1) ;; precise pixel scrolling
+(setq pixel-scroll-precision-use-momentum nil) ;; no momentum in scrolling
