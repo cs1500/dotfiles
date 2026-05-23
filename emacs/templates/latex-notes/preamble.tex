@@ -1,0 +1,65 @@
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[indent=20pt]{parskip}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{physics}
+\usepackage{graphicx} % required fo\usepackage{multirow}r inserting images
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{centernot}
+\usepackage{titling}
+\usepackage{algpseudocode}
+\usepackage{comment}
+\usepackage{tabularx}  % in the preamble
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{forest}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{placeins}
+
+% references
+\usepackage[style=authoryear-ibid,backend=biber]{biblatex}
+\bibliography{./ref/references.bib}
+
+% commands
+\newcommand{\deq}{\vcentcolon=}
+\newcommand{\idd}{\text{đ}}
+\newcommand{\nimplies}{\centernot\implies}
+\newcommand{\vc}[1]{\boldsymbol{#1}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\hess}[1]{\vc{\nabla}^2 f(\vc{#1})}
+
+% margin settings
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm,
+    top=20mm,
+    bottom=20mm
+}
+
+% testing
+\usepackage{blindtext}
+
+% proof environments
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark} % unnumbered remarks
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]

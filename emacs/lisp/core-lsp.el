@@ -16,7 +16,7 @@
 
 ;; --- general corfu configuration ---
 (setq corfu-auto t) ;; show completions automatically
-(setq corfu-auto-prefix 1)  ;; start completing immediately
+(setq corfu-auto-prefix 0)  ;; start completing immediately
 (setq corfu-auto-delay 0.1) ;; popup delay in seconds
 (setq corfu-quit-no-match t) ;; close popup when there is no match
 (setq corfu-cycle t) ;; wrap around completion list

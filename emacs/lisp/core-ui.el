@@ -25,6 +25,9 @@
 ;; show absolute line numbering
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'text-mode-hook #'display-line-numbers-mode)
+(setq display-line-numbers-width 3) ;; reserve spacing for up to three digits
+(setq display-line-numbers-grow-only t)
+(global-display-line-numbers-mode 1)
 
 ;; red cursor
 (setq-default cursor-type 'box)

@@ -5,22 +5,23 @@
 (electric-pair-mode 1) ;; autocomplete stuff like `(` with `)`
 
 ;; tab settings
-(setq-default
-    indent-tabs-mode nil ;; spaces instead of tabs
-    tab-width 4)
+(setq-default indent-tabs-mode nil ;; spaces instead of tabs
+              tab-width 4)
 (setq tab-always-indent t)
-(setq lisp-indent-offset 4)
+(setq-default backward-delete-char-untabify-method 'hungry) ;; delete all spaces
 
 ;; --- dired settings ---
-;; ensures mouse clicks mirror keyboard behaviour
+;; file management with C-c C-f
+;; the following ensures mouse clicks mirror keyboard behaviour
 (with-eval-after-load 'dired
-    (define-key dired-mode-map [mouse-2] #'dired-mouse-find-file)
-    (define-key dired-mode-map [mouse-1] #'dired-mouse-find-file))
+  (define-key dired-mode-map [mouse-2] #'dired-mouse-find-file)
+  (define-key dired-mode-map [mouse-1] #'dired-mouse-find-file))
+
 (add-hook 'dired-mode-hook
-    (lambda ()
-        (evil-define-key 'normal dired-mode-map
-            (kbd "j") #'dired-next-line
-            (kbd "k") #'dired-previous-line)))
+          (lambda ()
+            (evil-define-key 'normal dired-mode-map
+              (kbd "j") #'dired-next-line
+              (kbd "k") #'dired-previous-line)))
 
 ;; sort hidden folders first
 (require 'ls-lisp)
@@ -39,21 +40,24 @@
 
 ;; split screen using alt + arrowkeys
 (global-set-key (kbd "M-<right>")
-    (lambda ()
-        (interactive)
-        (split-window-right)
-        (windmove-right)))
+                (lambda ()
+                  (interactive)
+                  (split-window-right)
+                  (windmove-right)))
+
 (global-set-key (kbd "M-<left>")
-    (lambda ()
-        (interactive)
-        (split-window-right)))
+                (lambda ()
+                  (interactive)
+                  (split-window-right)))
+
 (global-set-key (kbd "M-<down>")
-    (lambda ()
-        (interactive)
-        (split-window-below)
-        (windmove-down)))
+                (lambda ()
+                  (interactive)
+                  (split-window-below)
+                  (windmove-down)))
+
 (global-set-key (kbd "M-<up>")
-    (lambda ()
-        (interactive)
-        (split-window-below)))
+                (lambda ()
+                  (interactive)
+                  (split-window-below)))
 

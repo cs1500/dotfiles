@@ -1,13 +1,13 @@
 ;; === early-init.el ===
-;; faster startup
 
-(setq
-    ;; set garbage collection to 64mb (default is 800kb)
-    gc-cons-threshold (* 64 1024 1024)
+;; --- startup performance ---
+;; set garbage collection to 64mb (default is 800kb)
+(setq gc-cons-threshold (* 64 1024 1024))
 
-    ;; increases maximum per chunk read size to 4mb (from 4kb)
-    read-process-output-max (* 4 1024 1024))
+;; increases maximum per chunk read size to 4mb (from 4kb)
+(setq read-process-output-max (* 4 1024 1024))
 
+;; --- frame and ui ---
 ;; disable gui elements
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -17,5 +17,9 @@
 ;; launch maximised, windowed fullscreen, placed here for speed
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-(setq package-enable-at-startup nil) ;; do not connect to packages
+;; --- package startup ---
+;; do not load packages before init.el
+(setq package-enable-at-startup nil)
+
+;; disable package archives
 (setq package-archives nil)
