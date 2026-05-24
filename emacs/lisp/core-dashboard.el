@@ -8,11 +8,12 @@
 ;; --- dashboard customisations ---
 (setq inhibit-startup-screen t) ;; disable default emacs startup screen
 (setq initial-buffer-choice ;; set emacs to always start dashboard
-      (lambda () (get-buffer-create "*dashboard*")))
+    (lambda () (get-buffer-create "*dashboard*")))
 (setq dashboard-items '((recents  . 10) ;; show 10 recent files, and etc
-                        (bookmarks . 5)
-                        (projects  . 5)))
+                        (bookmarks . 10)))
 (dashboard-setup-startup-hook)
+;;(with-eval-after-load 'dashboard ;; get dashboard to always reload
+;;  (add-hook 'dashboard-mode-hook #'dashboard-refresh-buffer)) ;; PROBLEMATIC!
 
 ;; evil snap j/k to dashboard entries
 (with-eval-after-load 'evil
