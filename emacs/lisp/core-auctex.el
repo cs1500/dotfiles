@@ -9,6 +9,12 @@
     (setq TeX-debug-warnings t)
     (setq TeX-debug-bad-boxes t)
 
+    (defun save-all-before-tex-command (&rest _)
+        "Save all modified file buffers before running an AUCTeX command."
+        (save-some-buffers t))
+
+    (advice-add 'TeX-command-master :before #'save-all-before-tex-command)
+
     ;; add new command `latex-build`
     (add-to-list
         'TeX-command-list

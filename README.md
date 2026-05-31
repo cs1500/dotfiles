@@ -19,7 +19,7 @@ sudo apt install \
     gnome-shell-extensions gnome-shell-extension-manager \
     emacs-lucid elpa-pdf-tools elpa-pdf-tools-server elpa-evil \
     elpa-emacs-dashboard auctex elpa-eglot texlab elpa-corfu \
-    python3-pylsp
+    elpa-magit python3-pylsp
 ```
 
 ## Debian
@@ -78,6 +78,34 @@ GRUB_DISABLE_OS_PROBER=false
 Then update grub with:
 ```
 sudo grub2-mkconfig -o /etc/grub2-efi.cfg
+```
+
+# Blocklist
+```
+0.0.0.0 youtube.com
+0.0.0.0 www.youtube.com
+0.0.0.0 music.youtube.com
+0.0.0.0 www.music.youtube.com
+0.0.0.0 bilibili.com
+0.0.0.0 www.bilibili.com
+0.0.0.0 reddit.com
+0.0.0.0 www.reddit.com
+0.0.0.0 chess.com
+0.0.0.0 www.chess.com
+0.0.0.0 lichess.org
+0.0.0.0 www.lichess.org
+0.0.0.0 everythingmoe.com
+0.0.0.0 www.everythingmoe.com
+0.0.0.0 anikototv.to
+0.0.0.0 www.anikototv.to
+0.0.0.0 animepahe.pw
+0.0.0.0 www.animepahe.pw
+0.0.0.0 phoronix.com
+0.0.0.0 www.phoronix.com
+0.0.0.0 notebookcheck.net
+0.0.0.0 www.notebookcheck.net
+0.0.0.0 store.steampowered.com
+0.0.0.0 www.store.steampowered.com
 ```
 
 # References
