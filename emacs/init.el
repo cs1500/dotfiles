@@ -9,4 +9,3 @@
 (load "core-pdf-tools" t)
 (load "core-auctex" t)
 (load "core-lsp" t)
-(load "core-magit")

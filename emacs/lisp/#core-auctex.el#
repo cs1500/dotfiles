@@ -20,9 +20,8 @@
         'TeX-command-list
         (list
             "latex-build"
-            ;; "latexmk -pdf -bibtex -cd " ;; no -bibtex?
             (concat
-                "latexmk -pdf -cd " ;; bibtex citations
+                "latexmk -pdf -bibtex -cd " ;; bibtex citations
                 "-shell-escape " ;; for minted package
                 "-interaction=nonstopmode " ;; compile even with errors
                 "-file-line-error -synctex=1 "
@@ -55,7 +54,6 @@
 
 ;; --- indentation settings ---
 (with-eval-after-load 'latex
-  ;; If AUCTeX/completion steals TAB, force TAB to mean "indent".
   (define-key LaTeX-mode-map (kbd "TAB") #'indent-for-tab-command)
   (define-key LaTeX-mode-map (kbd "<tab>") #'indent-for-tab-command))
 
@@ -78,15 +76,3 @@
             (assoc-delete-all "document"
                               (copy-alist LaTeX-indent-environment-list))))
 (add-hook 'LaTeX-mode-hook #'latex-mode-indent)
-
-(use-package visual-fill-column
-    :ensure nil
-    :hook
-    ((LaTeX-mode . my/latex-visual-wrap)
-     (latex-mode . my/latex-visual-wrap))
-    :config
-    (defun my/latex-visual-wrap ()
-        (setq-local fill-column 80)
-        (auto-fill-mode -1)
-        (visual-line-mode 1)
-        (visual-fill-column-mode 1)))

@@ -14,6 +14,8 @@
 (setq use-dialog-box nil) ;; no gui pop ups
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-message t)
+(setq column-number-mode t) ;; show character position
+(setq line-number-mode t)
 
 ;; set built in wombat dark theme
 (load-theme 'wombat t)
